@@ -83,7 +83,7 @@ const Register = () => {
                    
                   />
                  
-                  <button type="submit"> Register</button>
+                  <button type="submit" class="background-color:blue"> Register</button>
                 </div>
               
               
