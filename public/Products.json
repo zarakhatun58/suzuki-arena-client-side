@@ -1,0 +1,155 @@
+[
+    {
+     
+      "name": "Suzuki-Vitara-Allgrip",
+      "img": "https://i.ibb.co/n0ywqGM/car1.jpg",
+      "price": "₹ 5.35 lacs",
+      "rating": "3",
+      "description": "ALLGRIP is Suzuki's 4WD system that brilliantly combines three values in great demand today: Fun to drive, Peace of mind, and High fuel-efficiency."
+    },
+    {
+      
+      "name": "Maruti Suzuki Celerio X",
+      "img": "https://i.ibb.co/QCP1HBF/car5.jpg",
+      "price": "₹ 5.35 lacs",
+      "rating": "3",
+      "description": "Maruti Suzuki Celerio X is a 5-seater Hatchback available at a starting price of Rs. 5.12 Lakh. The car is available in 8 variants, with 1 engine and 2 ."
+    },
+    {
+     
+      "name": "Maruti Suzuki Ciaz",
+      "img": "https://i.ibb.co/j3b4sJs/car6.jpg",
+      "price": "₹ 9.42 lacs",
+      "rating": "5",
+      "description": "Is the Ciaz a luxury car? Ciaz is a luxury car, built to charm you with its elegance and leave you mesmerized with an incredible drive."
+    },
+    {
+     
+      "name": "Maruti Suzuki Dzire",
+      "img": "https://i.ibb.co/Xs1vsBJ/car7.jpg",
+      "price": "₹ 6.54 lacs",
+      "rating": "3",
+      "description": "ZDi+ is the top most model and has the most features and also VDi is as good but lacks certain features. I think go for vdi and then with after market alloys and company led front lights thats it . "
+    },
+    {
+      
+      "name": "Maruti Suzuki Eeco",
+      "img": "https://i.ibb.co/1bhMfsT/car8.jpg",
+      "price": "₹ 5.52 lacs",
+      "rating": "4",
+      "description": "Maruti Suzuki Eeco comes in five seater and seven seater variants. AC is featured in fiver seater variant only. It is possible to put AC in seven seater version also."
+    },
+    {
+      
+      "name": "Maruti Suzuki Ertiga",
+      "img": "https://i.ibb.co/M5FRN8N/car9.jpg",
+      "price": "₹ 11.85 lacs",
+      "rating": "2",
+      "description": "The Ertiga ZXI - with the automatic or manual transmission - is our top recommended variant and is a good value for money."
+    },
+    {
+      
+      "name": "Maruti Suzuki Ignis",
+      "img": "https://i.ibb.co/rxHrPwS/car10.jpg",
+      "price": "₹ 8.18 lacs",
+      "rating": "3",
+      "description": "Is Maruti Ignis a failure . Ignis was a staggering failure for the company last month. Maruti's hatchback offering sold 964 units in December 2019, but that number dropped to zero in January. India's biggest carmaker failed to sell a single unit of Ignis."
+    },
+    {
+      
+      "name": "Maruti Suzuki S-Cross",
+      "img": "https://i.ibb.co/9h7g1td/car11.jpg",
+      "price": "₹ 9.51 lacs",
+      "rating": "4",
+      "description": "The NEXA S-CROSS is a premium and refined SUV. The state-of-the-art features, latest technology, spacious and luxurious cabin powered by 1.5L K15 engine ensures best-in-class fuel efficiency "
+    },
+    {
+      
+      "name": "Maruti Suzuki S-Presso",
+      "img": "https://i.ibb.co/YBR6cdg/car12.jpg",
+      "price": "₹ 5.85 lacs",
+      "rating": "3",
+      "description": "ALLGRIP is Suzuki's 4WD system that brilliantly combines three values in great demand today: Fun to drive, Peace of mind, and High fuel-efficiency."
+    },
+    {
+      
+      "name": "Maruti Suzuki Swift",
+      "img": "https://i.ibb.co/m8Xb3vz/car13.jpg",
+      "price": "₹ 9.37 lacs",
+      "rating": "5",
+      "description": "Maruti Suzuki has launched the updated version of its best-selling hatchback Swift. The facelift gets a brand new engine and a handful of exterior and interior changes to give it a fresh look."
+    },
+    {
+      
+      "name": "Maruti Suzuki Wagon R",
+      "img": "https://i.ibb.co/XWwhYkb/car15.jpg",
+      "price": "₹ 13.32 lacs",
+      "rating": "2",
+      "description": "Maruti Suzuki Wagon R ZXi 1.2 AMT is the top model in the Wagon R lineup and the price of Wagon R top model is ₹ 6.45 Lakh.It returns a certified mileage of 20.52 kmpl."
+    },
+    {
+      
+      "name": "Maruti Suzuki Vitara Brezza",
+      "img": "https://i.ibb.co/BgXs0Jw/car14.jpg",
+      "price": "₹ 8.35 lacs",
+      "rating": "3",
+      "description": "Maruti Vitara Brezza is a 5 seater SUV available in a price range of Rs. 7.61 - 11.19 Lakh*. It is available in 9 variants, a 1462 cc, BS6 and 2 transmission .."
+    },
+    {
+      
+      "name": "Maruti Suzuki XL6",
+      "img": "https://i.ibb.co/qRFXcZ4/car16.jpg",
+      "price": "₹ 11.13 lacs",
+      "rating": "5",
+      "description": "The NEXA XL6 by Maruti Suzuki is premium in every aspect. It has an impressive stance and powerful persona, its stunning looks and premium 3-row interiors ."
+    },
+    {
+      
+      "name": "MG Astor",
+      "img": "https://i.ibb.co/nLk241S/car17.jpg",
+      "price": "₹ 11.06 lacs",
+      "rating": "3",
+      "description": "MG Astor is a 5 seater SUV available in a price range of ₹ 9.78 - 17.38 Lakh. It is available in 12 variants, 1 engine option and 3 transmission options : .."
+    },
+    {
+     
+      "name": "Mercedes-Benz S-Class",
+      "img": "https://i.ibb.co/S5Tj5YK/car18.jpg",
+      "price": "₹ 118.05 lacs",
+      "rating": "4",
+      "description": "Mercedes-Benz S-Class is a 5 seater Luxury available in a price range of Rs. 1.56 - 1.61 Cr*. It is available in 2 variants, 2 engine options that are BS6 .."
+    },
+    {
+     
+      "name": "Mahindra XUV700",
+      "img": "https://i.ibb.co/8mZf2NR/car19.jpg",
+      "price": "₹ 27.28 lacs",
+      "rating": "5",
+      "description": "Mahindra XUV700 is an all new, authentic, global SUV set to redefine benchmarks with its sci-fi technology, spirited performance and first-in-class .."
+    },
+    {
+      
+      "name": "Volkswagen Taigun",
+      "img": "https://i.ibb.co/qYrT1NX/car20.jpg",
+      "price": "₹ 20.36 lacs",
+      "rating": "3",
+      "description": "Volkswagen Taigun. Volkswagen Taigun is a 5 seater SUV available in a price range of ₹ 10.49 - 17.50 Lakh. In the BS6 era, the Taigun is powered by 999 cc ."
+    },
+    {
+     
+      "name": "Audi e-tron",
+      "img": "https://i.ibb.co/c3j5RrQ/car21.jpg",
+      "price": "₹ 113.4 lacs",
+      "rating": "4",
+      "description": "Audi e-tron. Audi e-tron is a 5 seater SUV available in a price range of ₹ 99.99 Lakh - 1.16 Crore. It is available in 2 variants and 1 transmission option : .."
+    },
+    {
+      
+      "name": "BMW 6 Series Gran Turismo",
+      "img": "https://i.ibb.co/wpkv36S/car22.jpg",
+      "price": "₹ 78.58  lacs",
+      "rating": "5",
+      "description": "The G32 BMW 6 Series is the fourth generation of the BMW Gran Turismo range of fastback mid-size luxury cars, and was launched in 2017 as the successor to"
+    }
+  ]
+  
