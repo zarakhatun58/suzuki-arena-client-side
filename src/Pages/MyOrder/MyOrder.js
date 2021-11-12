@@ -8,7 +8,7 @@ const MyOrder = () => {
     const [myOrder, setMyOrder] = useState([]);
     
     useEffect(() => {
-        fetch(`http://localhost:5000/orders/${user?.email}`)
+        fetch(`https://arcane-river-42711.herokuapp.com/myOrder/${user?.email}`)
         
             .then(res => res.json())
             .then(data => console.log(data))
@@ -17,7 +17,7 @@ const MyOrder = () => {
     const handleCancel = id => {
         const proceed = window.confirm('Are you sure you want to delete');
         if (proceed) {
-            const url = `http://localhost:5000/orders/${id}`;
+            const url = `https://arcane-river-42711.herokuapp.com/myOrder/${id}`;
             fetch(url, {
                 method: 'DELETE',
             })
@@ -37,14 +37,14 @@ const MyOrder = () => {
                 <div className="row py-5">
                     <div className="col-md-12">
                         <div className="section-title text-center">
-                            <h2>My Bookings</h2>
+                            <h2 className="text-danger">My All Orders</h2>
                         </div>
                     </div>
                 </div>
                 <div className="row justify-content-center">
                     <div className="col-md-8">
                         <div className="Booking-single">
-                            <Table striped Bookinged>
+                            <Table striped Booking>
                                 <thead>
                                     <tr>
                                         <th>Id</th>

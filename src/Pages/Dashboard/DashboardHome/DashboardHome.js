@@ -1,20 +1,18 @@
 import React from 'react';
-import { Container, Row } from 'react-bootstrap';
+import icon5 from '../../../image/icons/icon5.jpg';
 
 const DashboardHome = () => {
-    const [date, setDate] = React.useState(new Date())
+   
     return (
-        <Row container spacing={2}>
-            <Container item xs={12} sm={5}>
-                <p
-                    date={date}
-                    setDate={setDate}
-                ></p>
-            </Container>
-            <Container item xs={12} sm={7}>
-                {/* <PlaceOrder date={date}></PlaceOrder> */}
-            </Container>
-        </Row>
+       <div>
+       
+       <img
+                    className=" w-50 h-50 mt-2 mb-2"
+                    src={icon5}
+                    alt=""
+                />
+       
+       </div>
     );
 };
 

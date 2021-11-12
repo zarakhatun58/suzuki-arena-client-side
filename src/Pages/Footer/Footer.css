@@ -1,8 +1,12 @@
 .footer-section{
     background-color:black;
+    color: darkolivegreen;
     
     
 }
 .footer-section .nav-link{
     color: #fff;
 }
+
+.footerImage{ height:100px; width: 150px; border-radius: 50%;  }
+

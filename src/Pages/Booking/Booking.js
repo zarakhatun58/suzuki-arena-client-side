@@ -11,7 +11,7 @@ const Booking = () => {
     const { id } = useParams();
     const [Booking, setBooking] = useState({});
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${id}`)
+        fetch(`https://arcane-river-42711.herokuapp.com/services/${id}`)
             .then(res => res.json())
             .then(data => setBooking(data));
     }, [id])
@@ -21,7 +21,7 @@ const Booking = () => {
         const price = Booking.price;
         data.price = price;
 
-        fetch('http://localhost:5000/', {
+        fetch('https://arcane-river-42711.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -31,8 +31,10 @@ const Booking = () => {
             .then(res => res.json())
             .then(result => {
                 if (result.insertedId) {
-                    alert('Booking processed Successfully');
+                    alert('Purchase  processed Successfully');
                     reset();
+                    console.log(result)
+                    console.log(result.insertedId)
                 }
             })
     };

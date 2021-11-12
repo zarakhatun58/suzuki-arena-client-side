@@ -30,7 +30,7 @@ const Contact = () => {
                             <FaEnvelope/>
                         </span>
                         <span>
-                            <p>contact@maruti.con.in</p>
+                            <p>contact@maruti.co.in</p>
                             <p>suzukiarena@maruti.co.in</p>
                         </span>
                     </h5>

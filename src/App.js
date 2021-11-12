@@ -15,6 +15,8 @@ import Register from './Pages/Register/Register';
 import MyOrder from './Pages/MyOrder/MyOrder';
 import Explore from './Pages/Explore/Explore';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
+import Pay from './Pages/Dashboard/Pay/Pay';
+import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
 
 
 function App() {
@@ -30,27 +32,34 @@ function App() {
             <Route exact path="/home">
               <Home></Home>
             </Route>
-            <Route path="/login">
+            <Route exact path="/login">
               <LogIn />
             </Route>
             
-            <Route path="/register">
+            <Route exact path="/register">
               <Register/>
             </Route>
-            <Route path="/myOrder">
+            <Route exact path="/myOrder">
             <MyOrder/>
             </Route>
-            <Route path="/explore">
+            <Route exact path="/explore">
             <Explore/>
             </Route>
-            <Route path="/dashboard">
+            <Route exact path="/dashboard">
             <Dashboard/>
             </Route>
-            
+            <Route exact path="/pay">
+            <Pay/>
+            </Route>
             
             <PrivateRoute exact path="/AddReview">
               <AddReview />
             </PrivateRoute>
+            
+            <PrivateRoute exact path="/makeAdmin">
+              <MakeAdmin />
+            </PrivateRoute>
+            
             
             <PrivateRoute exact path="/Booking/:id">
               <Booking />

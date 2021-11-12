@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Form } from 'react-bootstrap';
+
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
 
@@ -14,7 +14,7 @@ const UpdateStatus = () => {
     formState: { errors },
   } = useForm();
   useEffect(() => {
-    const url = `http://localhost:5000/Bookings/${id}`;
+    const url = `https://arcane-river-42711.herokuapp.com/Bookings/${id}`;
     fetch(url)
       .then(res => res.json())
       .then(data => setBooking(data));
@@ -23,7 +23,7 @@ const UpdateStatus = () => {
 
 
   const onSubmit = (data) => {
-    fetch(`http://localhost:5000/update/${id}`, {
+    fetch(`https://arcane-river-42711.herokuapp.com/update/${id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

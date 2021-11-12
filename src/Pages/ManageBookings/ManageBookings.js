@@ -7,14 +7,14 @@ const ManageBookings = () => {
 
     const [Bookings, setBookings] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/orders/')
+        fetch('https://arcane-river-42711.herokuapp.com/orders/')
             .then(res => res.json())
             .then(data => setBookings(data))
     }, [])
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want to delete');
         if (proceed) {
-            const url = `http://localhost:5000/orders/${id}`;
+            const url = `https://arcane-river-42711.herokuapp.com/orders/${id}`;
             fetch(url, {
                 method: 'DELETE',
             })

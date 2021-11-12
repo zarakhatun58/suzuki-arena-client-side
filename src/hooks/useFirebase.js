@@ -3,6 +3,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   signOut,
+  updateProfile,
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -15,6 +16,8 @@ initializeAuthentication();
 const useFirebase = () => {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [admin, setAdmin] = useState(false);
+
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
 
@@ -31,17 +34,45 @@ const useFirebase = () => {
     return () => unsubscribe();
   }, [auth]);
 
-  const handleRegister = (email, password, name) => {
-    createUserWithEmailAndPassword(auth, email, password)
+  // useEffect(() =>{
+  // fetch(`http://localhost:5000/users/${user.email}`)
+  // .then(res=>res.json())
+  // .then(data=>setAdmin(data.admin))
+  // },[user.email])
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/checkAdmin/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data[0]?.role === "admin") {
+          setAdmin(true);
+        } else {
+          setAdmin(false);
+        }
+      });
+  }, [user?.email]);
+  console.log(admin);
+
+  const handleRegister = (email, password, name, history) => {
+    createUserWithEmailAndPassword(auth, email, password, history)
       .then((userCredential) => {
         const user = userCredential.user;
         const newUser = { email, displayName: name };
         setUser(newUser);
+        // send name to firebase creation
+        // saveUser(email, name, "POST");
+        updateProfile(auth.currentUser, {
+          displayName: name,
+        })
+          .then(() => {})
+          .catch((error) => {});
+
+        history.replace("/");
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        // ..
+        console.log(error);
       });
   };
   const handleEmailLogin = (email, password) => {
@@ -62,18 +93,29 @@ const useFirebase = () => {
   };
 
   const logOut = () => {
-    console.log("logouttttt");
-    signOut(auth)
-      .then(() => {
-        setUser({});
-      })
-      .catch((error) => {
-        // An error happened.
-      });
+    console.log("logout");
+
+    return signOut(auth);
+    // .then(() => {
+    //   setUser({});
+    // })
+    // .catch((error) => {
+    //   // An error happened.
+    // });
+  };
+  const handleUserInfoRegister = (email) => {
+    fetch("http://localhost:5000/addUserInfo", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ email }),
+    })
+      .then((res) => res.json())
+      .then((result) => console.log(result));
   };
 
   return {
     user,
+    admin,
     setUser,
     signInWithGoogle,
     isLoading,
@@ -81,6 +123,9 @@ const useFirebase = () => {
     handleRegister,
     handleEmailLogin,
     logOut,
+    handleUserInfoRegister,
+
+    // saveUser,
   };
 };
 

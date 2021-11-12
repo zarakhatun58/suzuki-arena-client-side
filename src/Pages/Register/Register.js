@@ -4,20 +4,23 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import { useHistory } from 'react-router';
 
 
 
 const Register = () => {
   const { register, handleSubmit, reset } = useForm();
     const { handleRegister } = useAuth();
+    
+    const history=useHistory();
 
   const onSubmit = (data) => {
     // console.log(data);
     const user = {email: data.email, displayName: data.name}
-    axios.post("http://localhost:5000/users", user).then((res) => {
+    axios.post("https://arcane-river-42711.herokuapp.com/users", user).then((res) => {
       if (res.data.insertedId) {
-        alert("added successfully");
-        handleRegister(data.email, data.password, data.name)
+        alert("Registered successfully");
+        handleRegister(data.email, data.password, data.name, history)
         reset();
       }
     });
@@ -61,9 +64,9 @@ const Register = () => {
         </form>
       </div>
       <br />
-      <Link style={{textDecoration: "none", color: "#000"}} to="/login">Already Register ? Please Login</Link>
+      <Link className="variant-success" style={{textDecoration: "none", color: "#000"}} to="/login">Already Register ? Please Login</Link>
     </div>
   );
 };
 
-export default Register
+export default Register;

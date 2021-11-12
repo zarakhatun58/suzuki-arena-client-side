@@ -1,23 +1,26 @@
 import React, { useState } from 'react';
-import { Alert, Button, Form, Container } from 'react-bootstrap';
-import useAuth from '../../../hooks/useAuth';
+import { Alert, Button, Form  } from 'react-bootstrap';
+import icon from '../../../image/icons/icon3.jpg'
+import './MakeAdmin.css';
 
 const MakeAdmin = () => {
 
     const [email, setEmail] = useState('');
     const [success, setSuccess] = useState(false);
-    const { token } = useAuth();
+    
     
     
     const handleOnBlur = e => {
         setEmail(e.target.value);
     }
+    
     const handleAdminSubmit = e => {
         const user = { email };
-        fetch('https://stark-caverns-04377.herokuapp.com/users/admin', {
+        
+        fetch('https://arcane-river-42711.herokuapp.com/makeAdmin', {
             method: 'PUT',
             headers: {
-                'authorization': `Bearer ${token}`,
+               
                 'content-type': 'application/json'
             },
             body: JSON.stringify(user)
@@ -26,6 +29,7 @@ const MakeAdmin = () => {
             .then(data => {
                 if (data.modifiedCount) {
                     console.log(data);
+                    setEmail('')
                     setSuccess(true);
                 }
             })
@@ -34,20 +38,27 @@ const MakeAdmin = () => {
     }
 
     return (
-        <div>
-             <h2>Make an Admin</h2>
-            <Form onSubmit={handleAdminSubmit}>
-                <Container 
-                    className="width:50%"
-                    label="Email"
-                    type="email"
-                    onBlur={handleOnBlur}
-                    variant="standard" >
-                    </Container>
-                <Button type="submit" variant="contained">Make Admin</Button>
-            </Form>
+        <div className="admin">
+    
+        <img  className="adIcon"
+                    src={icon} alt=""/>
+       
+             <h4 className="text-success mt-2">Make an Admin <span><i class="fas fa-user-plus"></i></span></h4>
+             
+             <Form onSubmit={handleAdminSubmit}>
+             <input className="w-50 "
+             type="email"
+             placeholder="email"
+             onBlur={handleOnBlur}
+             >       
+             </input>
+             <Button type="submit" variant="success">Make Admin</Button>
+             </Form>
+             
+             
             {success && <Alert variant="success">Made Admin successfully!</Alert>}
         </div>
+        
     );
 };
 

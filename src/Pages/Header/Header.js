@@ -19,9 +19,10 @@ const Header = () => {
                     <Navbar.Collapse className="justify-content-end">
                         <Nav.Link as={Link} className="text-dark" to="/home">Home</Nav.Link>
                         <Nav.Link as={Link} className="text-dark" to="/explore">Explore</Nav.Link>
+                        {/* <Nav.Link as={Link} className="text-dark" to="/myOrder">MyOrder</Nav.Link> */}
+
                         <Nav.Link as={Link} className="text-dark" to="/dashboard">Dashboard</Nav.Link>
-                        {/* <Nav.Link as={Link} className="text-dark" to="/AddReview">Add Review</Nav.Link>
-                        <Nav.Link as={Link} className="text-dark" to="/myOrder">MyOrder</Nav.Link> */}
+                        <Nav.Link as={Link} className="text-dark" to="/AddReview">Add Review</Nav.Link>
                        
                         
                         <Navbar.Text className="text-dark">
@@ -42,10 +43,10 @@ const Header = () => {
                          </div>
                    
                          :
-                         <Link class="text-dark">
+                        
                          <Button onClick={()=>logOut()} variant="primary">Logout</Button>
                         
-                         </Link>
+                     
                          
                         
                         

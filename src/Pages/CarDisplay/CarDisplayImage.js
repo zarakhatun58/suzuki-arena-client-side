@@ -4,7 +4,7 @@ const CarDisplayImage = () => {
     return (
         <div>
             <h5 className="text-danger">SUZUKI ARENA DISPLAY</h5>
-            <h1>Affordable Car's Offer</h1>
+            <h3>Diwali Offer Car's Model</h3>
             <div class="container">
                 <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 g-1 g-lg-2 my-5">
                     <div class="col">

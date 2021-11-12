@@ -1,7 +1,7 @@
 import icon1 from '../../image/icons/icon1.png';
 import React from 'react';
 import { FaFacebookSquare, FaInstagramSquare, FaWhatsappSquare } from "react-icons/fa";
-import carlogo from '../../image/icons/icon2.jpg';
+import footerIcon from '../../image/icons/icon8.jpg';
 
 import './Footer.css';
 const Footer = () => {
@@ -12,7 +12,7 @@ const Footer = () => {
                     <div className="row row-cols-1 row-cols-lg-4 row-cols-md-4 py-3 text-start">
                         
                         <div className="col">
-                        <img style={{height:"150px"}} src={carlogo} alt="" />
+                        <img className="footerImage" src={footerIcon} alt="" />
                             {/* <h5>Quick Links</h5>
                             <p>Home</p>
                             <p>Term</p>

@@ -1,14 +1,17 @@
 import React from "react";
-import { useHistory, useLocation } from "react-router";
+
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
+import { useHistory } from 'react-router';
+import { useLocation } from 'react-router';
 
 const LogIn = () => {
   const {
     signInWithGoogle,
     user,
     setUser,
+    saveUser,
     logOut,
     setIsLoading,
     handleEmailLogin,
@@ -17,18 +20,33 @@ const LogIn = () => {
   const history = useHistory();
   const location = useLocation();
 
-  const url = location?.state?.from || "/home";
+  const url = location.state?.from || "/home";
 
   const handleGoogleLogin = () => {
+    
     signInWithGoogle()
       .then((res) => {
         setIsLoading(true);
         setUser(res.user);
+        saveUser(user.email, user.displayName, 'PUT')
         history.push(url);
       })
       .catch((err) => console.log(err))
       .finally(() => {
         setIsLoading(false);
+      });
+  };
+  const handleLogOut = () => {
+  setIsLoading(true)
+    logOut()
+      .then((res) => {
+        setUser({});
+        history.push("/home");
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        // An error happened.
+        console.log(error);
       });
   };
 
@@ -75,14 +93,14 @@ const LogIn = () => {
               </button>
             ) : (
               <button
-                onClick={logOut}
+                onClick={handleLogOut}
                 className="btn btn-primary mt-3 text-white"
               >
                 Log Out
               </button>
             )}
             <br />
-            <Link
+            <Link className="text-success"
               style={{
                 textDecoration: "none",
                 color: "#000",

@@ -5,6 +5,7 @@ import Contact from '../Contact/Contact';
 import Footer from '../Footer/Footer';
 import Products from '../Products/Products';
 import Review from '../Review/Review';
+import MakeAdmin from './../Dashboard/MakeAdmin/MakeAdmin';
 
 
 
@@ -14,6 +15,7 @@ const Home = () => {
              <Banner />
              <Products />
              <Review/>
+             
              <CarDisplayImage/>
              <Contact/>
              <Footer/>

@@ -10,14 +10,14 @@ library.add(fullStar, emptyStar);
 const SingleReview= ({review}) => {
     const {name, rating, comment} = review;
     return (
-        <div className="col-lg-4">
+        <div className="col-lg-4 text-center">
         <div className="card mb-3 single-service p-3">
            
             <div className="d-flex justify-content-between my-3">
-                 <h4 className="my-3">{name}</h4>
+                 <h5 className="my-3 text-danger ">{name}</h5>
             </div>
 
-            <h3>Rating: {rating}</h3>
+            <h5 className="text-success">Rating: {rating}</h5>
             <Rating
                     readonly
                     style={{ color: "goldenrod" }}
