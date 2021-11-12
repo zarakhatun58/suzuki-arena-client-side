@@ -6,10 +6,12 @@ import './MyOrder.css';
 const MyOrder = () => {
     const { user } = useFirebase();
     const [myOrder, setMyOrder] = useState([]);
+    
     useEffect(() => {
         fetch(`http://localhost:5000/orders/${user?.email}`)
+        
             .then(res => res.json())
-            .then(data => setMyOrder(data))
+            .then(data => console.log(data))
     }, [user.email])
 
     const handleCancel = id => {

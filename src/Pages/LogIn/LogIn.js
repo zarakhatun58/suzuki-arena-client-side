@@ -1,82 +1,97 @@
-import React, { useState } from "react";
-import "./LogIn.css";
-import useAuth from "../../hooks/useAuth";
+import React from "react";
 import { useHistory, useLocation } from "react-router";
 import { Link } from "react-router-dom";
-import { Alert } from "react-bootstrap";
+import { useForm } from "react-hook-form";
+import useAuth from "../../hooks/useAuth";
 
 const LogIn = () => {
-  const [loginData, setLoginData] = useState({});
-  const { user, loginUser, signInWithGoogle, isLoading, authError, logout } =
-    useAuth();
-
-  const location = useLocation();
+  const {
+    signInWithGoogle,
+    user,
+    setUser,
+    logOut,
+    setIsLoading,
+    handleEmailLogin,
+  } = useAuth();
+  const { register, handleSubmit, reset } = useForm();
   const history = useHistory();
+  const location = useLocation();
 
-  const handleOnChange = (e) => {
-    const field = e.target.name;
-    const value = e.target.value;
-    const newLoginData = { ...loginData };
-    newLoginData[field] = value;
-    setLoginData(newLoginData);
-  };
-  const handleLoginSubmit = (e) => {
-    loginUser(loginData.email, loginData.password, location, history);
-    e.preventDefault();
+  const url = location?.state?.from || "/home";
+
+  const handleGoogleLogin = () => {
+    signInWithGoogle()
+      .then((res) => {
+        setIsLoading(true);
+        setUser(res.user);
+        history.push(url);
+      })
+      .catch((err) => console.log(err))
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
-  const handleGoogleSignIn = () => {
-    signInWithGoogle(location, history);
+  const onSubmit = (data) => {
+    handleEmailLogin(data.email, data.password);
+    reset();
   };
-
   return (
     <>
-      <h2> Please Login </h2>
-      <div className="log-in-area py-5">
-        <div className="container">
-          <div className="row">
-            <div className=" row-cols-1 row-cols-lg-4 row-cols-md-4 mx-auto p-0">
-              <form onSubmit={handleLoginSubmit}>
-                <div class="form-floating mb-3">
-                  <input
-                    type="email"
-                    onChange={handleOnChange}
-                    class="form-control"
-                    id="floatingInput"
-                    placeholder="email"
-                  />
-                  <label for="floatingInput">Email address</label>
-                </div>
-                <div class="form-floating">
-                  <input
-                    type="password"
-                    onChange={handleOnChange}
-                    class="form-control"
-                    id="floatingPassword"
-                    placeholder="Password"
-                  />
-                  <label for="floatingPassword">Password</label>
-                  <button type="submit"> Login</button>
-                </div>
-              
-             
-              <div className="login-form text-center">
-                <Link to="/register">
-                  <button type="submit">New user? Please Register </button>
-                </Link>
+      <div className="bg-light py-5">
+        <div className=" pb-5">
+          <h3 className="text-center  pb-3">Login</h3>
+          <div className="w-75 mx-auto">
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <input
+                type="email"
+                className="form-control  mb-3"
+                {...register("email")}
+                placeholder="Your Email"
+                required
+              />
+              <input
+                type="password"
+                className="form-control  mb-3"
+                {...register("password")}
+                placeholder="Your password"
+                required
+              />
+              <button className="btn btn-primary w-100 fw-bold" type="submit">
+                Login
+              </button>
+            </form>
+          </div>
+        </div>
 
-                { isLoading && <div class="spinner-border text-success" role="status">
-                  <span class="visually-hidden">Loading...</span>
-                </div>}
-                {user?.email && <Alert variant="success">Login successfully!</Alert> }
-                {authError && <Alert variant="error">{authError}</Alert>}
-                
-              </div>
-             
-              <p>..................</p>
-              <button type="submit" onClick={handleGoogleSignIn}>Google Sign In </button>
-              </form>
-            </div>
+        <div className="mx-auto p-0">
+          <div className="text-center">
+            {!user?.displayName ? (
+              <button
+                onClick={handleGoogleLogin}
+                className="btn btn-primary text-white"
+              >
+                Google LogIn
+              </button>
+            ) : (
+              <button
+                onClick={logOut}
+                className="btn btn-primary mt-3 text-white"
+              >
+                Log Out
+              </button>
+            )}
+            <br />
+            <Link
+              style={{
+                textDecoration: "none",
+                color: "#000",
+                marginTop: "10px",
+              }}
+              to="/register"
+            >
+              New User ? Please Register
+            </Link>
           </div>
         </div>
       </div>

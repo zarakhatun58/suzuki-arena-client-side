@@ -7,14 +7,14 @@ const ManageBookings = () => {
 
     const [Bookings, setBookings] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/Bookings/')
+        fetch('http://localhost:5000/orders/')
             .then(res => res.json())
             .then(data => setBookings(data))
     }, [])
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want to delete');
         if (proceed) {
-            const url = `http://localhost:5000/Bookings/${id}`;
+            const url = `http://localhost:5000/orders/${id}`;
             fetch(url, {
                 method: 'DELETE',
             })

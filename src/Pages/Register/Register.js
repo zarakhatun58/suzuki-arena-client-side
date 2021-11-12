@@ -1,110 +1,69 @@
-import React, { useState } from 'react';
-import { Alert } from 'react-bootstrap';
-import { useHistory } from 'react-router';
-import { Link } from 'react-router-dom';
-import useAuth from './../../hooks/useAuth';
+
+import axios from "axios";
+import React from "react";
+import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+
+
 
 const Register = () => {
+  const { register, handleSubmit, reset } = useForm();
+    const { handleRegister } = useAuth();
 
-    const [loginData, setLoginData] = useState({});
-    const history = useHistory();
-    const { user, registerUser, isLoading, authError } = useAuth();
-
-    const handleOnBlur = e => {
-        const field = e.target.name;
-        const value = e.target.value;
-        const newLoginData = { ...loginData };
-        newLoginData[field] = value;
-        console.log(newLoginData)
-        setLoginData(newLoginData);
-       
-    }
-    const handleLoginSubmit = e => {
-        if (loginData.password !== loginData.password2) {
-            alert('Your password did not match');
-            return
-        }
-        registerUser(loginData.name, loginData.email, loginData.password,loginData.password2,  history);
-        e.preventDefault();
-    }
-    return (
-    <div>
-    
-        <div className="log-in-area py-5">
-        <h2> Register Here </h2>
-        <div className="container">
-          <div className="row">
-            <div className=" row-cols-1 row-cols-lg-4 row-cols-md-4 mx-auto p-0">
-            {!isLoading && <form onSubmit={handleLoginSubmit}>
-                <div class="form-floating mb-3">
-                  <input
-                   placeholder="enter name"
-                    type="text"
-                    name="name"
-                    onBlur={handleOnBlur}
-                    class="form-control"
-                    id="floatingInput"
-                   
-                  />
-                 
-                </div>
-                <div class="form-floating mb-3">
-                  <input
-                   placeholder="email"
-                    type="email"
-                    name="email"
-                    onBlur={handleOnBlur}
-                    class="form-control"
-                    id="floatingInput"
-                   
-                  />
-                
-                </div>
-                <div class="form-floating">
-                  <input
-                   placeholder="Password"
-                    type="password"
-                    name="password"
-                    onBlur={handleOnBlur}
-                    class="form-control"
-                    id="floatingPassword"
-                   
-                  />
-                 
-                  </div>
-                  <div>
-                  <input
-                   placeholder="re enter Password"
-                    type="password"
-                    name="password2"
-                    onBlur={handleOnBlur}
-                    class="form-control"
-                    id="floatingPassword"
-                   
-                  />
-                 
-                  <button type="submit" class="background-color:blue"> Register</button>
-                </div>
-              
-              
-               
-                <Link to="/login">
-                  <button type="submit">Already Registered? Please Login </button>
-                </Link>
-                    </form>}
-                    
-                { isLoading && <div class="spinner-border text-success" role="status">
-                  <span class="visually-hidden">Loading...</span>
-                </div>}
-                {user?.email && <Alert variant="success">User Created successfully!</Alert> }
-                {authError && <Alert variant="error">{authError}</Alert>}
-              
-            </div>
-          </div>
-        </div>
+  const onSubmit = (data) => {
+    // console.log(data);
+    const user = {email: data.email, displayName: data.name}
+    axios.post("http://localhost:5000/users", user).then((res) => {
+      if (res.data.insertedId) {
+        alert("added successfully");
+        handleRegister(data.email, data.password, data.name)
+        reset();
+      }
+    });
+  };
+  return (
+    <div className="bg-light pb-5">
+        <h3 className="text-center  py-5">Register</h3>
+      <div className="w-75 mx-auto">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <input
+            type="name"
+            className="form-control  mb-3"
+            {...register("name")}
+            placeholder="Your Name"
+            required
+          />
+          <input
+            type="email"
+            className="form-control  mb-3"
+            {...register("email")}
+            placeholder="Your Email"
+            required
+          />
+          <input
+            type="password"
+            className="form-control  mb-3"
+            {...register("password")}
+            placeholder="Your password"
+            required
+          />
+          <input
+            type="password"
+            className="form-control  mb-3"
+            {...register("password")}
+            placeholder="Confirm Your password"
+            required
+          />
+          <button className="btn btn-primary w-100 fw-bold" type="submit">
+            Register
+          </button>
+        </form>
       </div>
-      </div>
-    );
+      <br />
+      <Link style={{textDecoration: "none", color: "#000"}} to="/login">Already Register ? Please Login</Link>
+    </div>
+  );
 };
 
-export default Register;
+export default Register

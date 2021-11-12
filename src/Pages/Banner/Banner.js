@@ -4,6 +4,7 @@ import banner1 from '../../image/banner/banner1.jpg';
 import banner2 from '../../image/banner/banner2.jpg';
 import banner3 from '../../image/banner/banner3.jpg';
 import banner5 from '../../image/banner/banner5.jpg';
+import './Banner.css'
 
 const Banner = () => {
     return (
@@ -11,7 +12,7 @@ const Banner = () => {
         <Carousel>
             <Carousel.Item>
                 <img
-                    className="d-block w-100"
+                    className="d-block w-100 banner"
                     src={banner1}
                     alt="First slide"
                 />
@@ -22,7 +23,7 @@ const Banner = () => {
             </Carousel.Item>
             <Carousel.Item>
                 <img
-                    className="d-block w-100"
+                    className="d-block w-100 banner"
                     src={banner2}
                     alt="Second slide"
                 />
@@ -34,7 +35,7 @@ const Banner = () => {
             </Carousel.Item>
             <Carousel.Item>
                 <img
-                    className="d-block w-100"
+                    className="d-block w-100 banner"
                     src={banner3}
                     alt="Third slide"
                 />
@@ -46,7 +47,7 @@ const Banner = () => {
             </Carousel.Item>
             <Carousel.Item>
                 <img
-                    className="d-block w-100"
+                    className="d-block w-100 banner"
                     src={banner5}
                     alt="Third slide"
                 />

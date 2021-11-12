@@ -25,7 +25,7 @@ const {user} =useAuth()
                 <div className="row">
                     <div className="col-md-12">
                         <div className="section-title mb-4">
-                            <h2>Add A Booking Menu</h2>
+                        <h2 className="text-danger"> Add Your Favorite Feedback with Rating</h2>
                         </div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@ const {user} =useAuth()
                                 <input className="form-control mb-3" {...register("name")} value={user?.displayName} required />
                                 <input className="form-control mb-3" type="number" {...register("rating")} placeholder="rating(0-5)" required />
                                 <textarea className="form-control mb-3" {...register("comment")} placeholder="comment" required />
-                                <input className="btn btn-success" type="submit" />
+                                <input className="btn btn-primary" type="submit" />
                             </form>
                         </div>
                     </div>

@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import AuthProvider from './contexts/AuthProvider';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './Pages/Header/Header';
-import Footer from './Pages/Footer/Footer';
 import Home from './Pages/Home/Home';
 import NotFound from './Pages/NotFound/NotFound';
 import LogIn from './Pages/LogIn/LogIn';
@@ -31,7 +30,7 @@ function App() {
             <Route exact path="/home">
               <Home></Home>
             </Route>
-            <Route exact path="/login">
+            <Route path="/login">
               <LogIn />
             </Route>
             
@@ -52,6 +51,7 @@ function App() {
             <PrivateRoute exact path="/AddReview">
               <AddReview />
             </PrivateRoute>
+            
             <PrivateRoute exact path="/Booking/:id">
               <Booking />
             </PrivateRoute>
@@ -66,7 +66,7 @@ function App() {
               <NotFound />
             </Route>
           </Switch>
-          <Footer />
+         
         </Router>
       </AuthProvider>
     </div>

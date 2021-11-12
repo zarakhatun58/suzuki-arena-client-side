@@ -21,7 +21,7 @@ const Booking = () => {
         const price = Booking.price;
         data.price = price;
 
-        fetch('http://localhost:5000/Booking', {
+        fetch('http://localhost:5000/', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -43,7 +43,7 @@ const Booking = () => {
                     <div className="row py-5">
                         <div className="col-md-12">
                             <div className="section-title text-center">
-                                <h2>Your Booking</h2>
+                                <h2 className="text-danger">Your Purchase Items</h2>
                             </div>
                         </div>
                     </div>
@@ -73,7 +73,8 @@ const Booking = () => {
                                     <input className="form-control mb-3" placeholder="City" defaultValue="" {...register("city")} />
                                     <input className="form-control mb-3" placeholder="phone number" defaultValue="" {...register("phone")} />
 
-                                    <input className="btn btn-success px-5" type="submit" />
+                                    {/* <input className="btn btn-success px-5" type="submit" /> */}
+                                    <button className="btn btn-primary px-5" type="submit">Place Order </button>
                                 </form>
                             </div>
                         </div>
