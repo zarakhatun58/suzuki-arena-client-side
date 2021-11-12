@@ -76,7 +76,7 @@ const Booking = () => {
                                     <input className="form-control mb-3" placeholder="phone number" defaultValue="" {...register("phone")} />
 
                                     {/* <input className="btn btn-success px-5" type="submit" /> */}
-                                    <button className="btn btn-primary px-5" type="submit">Place Order </button>
+                                    <button className="btn btn-primary px-5" type="submit">Place Order <span> <i class="fas fa-cart-plus"></i></span> </button>
                                 </form>
                             </div>
                         </div>
