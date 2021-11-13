@@ -57,11 +57,9 @@ function App() {
             <Route exact path="/payment">
             <Payment/>
             </Route>
-            
-            
-            <PrivateRoute exact path="/AddReview">
+            <Route exact path="/AddReview">
               <AddReview />
-            </PrivateRoute>
+            </Route>
             
             <PrivateRoute exact path="/makeAdmin">
               <MakeAdmin />
