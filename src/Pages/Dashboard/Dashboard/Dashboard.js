@@ -22,10 +22,12 @@ import ManageProduct from './../ManageProduct/ManageProduct';
 import ManageAllOrder from './../../ManageAllOrder/ManageAllOrder';
 
 const Dashboard = (props) => {
+
+  
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   let { path, url } = useRouteMatch();
-  const { admin } = useAuth();
+  const { admin,user, logOut } = useAuth();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -53,6 +55,9 @@ const Dashboard = (props) => {
           <Link to={`${url}/manageProduct`}>
             <Button color="inherit">Manage Product</Button>
           </Link>
+          
+         
+
           
         </div>
       )}
@@ -88,25 +93,17 @@ const Dashboard = (props) => {
             onClick={handleDrawerToggle}
           >
             <Offcanvas.Header closeButton>
-              <Offcanvas.Title id="offcanvasNavbarLabel">
+              <Offcanvas.Title id="offcanvasNavbarLabel" className="text-danger">
                 Dashboard
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
               
-                <Nav.Link as={Link} className="text-primary" to="/makeAdmin">
+             {admin && (
+             <div>
+               <Nav.Link as={Link} className="text-primary" to="/makeAdmin">
                   Make Admin<span><i class="fas fa-user-plus"></i></span>
-                </Nav.Link>
-                <Nav.Link as={Link} className="text-primary" to="/AddReview">
-                  Add Review
-                </Nav.Link>
-               
-                <Nav.Link as={Link} className="text-primary" to="/myOrder">
-                  MyOrder
-                </Nav.Link>
-                <Nav.Link as={Link} className="text-primary" to="/pay">
-                  Pay
                 </Nav.Link>
                 <Nav.Link as={Link} className="text-primary" to="/manageAllOrder">
                   Manage All Order
@@ -117,7 +114,30 @@ const Dashboard = (props) => {
                 <Nav.Link as={Link} className="text-primary" to="/manageProduct">
                   Manage Product
                 </Nav.Link>
-
+             
+             
+             
+             </div>
+             
+             ) }
+                
+                <Nav.Link as={Link} className="text-primary" to="/AddReview">
+                  Add Review
+                </Nav.Link>
+                <Nav.Link as={Link} className="text-primary" to="/payment">
+                  Payment Gateway
+                </Nav.Link>
+               
+                <Nav.Link as={Link} className="text-primary" to="/myOrder">
+                  MyOrder
+                </Nav.Link>
+                <Nav.Link as={Link} className="text-primary" to="/pay">
+                  Pay
+                </Nav.Link>
+                 
+               
+                <Button onClick={()=>logOut()} variant="primary">Logout</Button>
+               
                
               </Nav>
               <Form className="d-flex">

@@ -44,7 +44,7 @@ const MyOrder = () => {
                 <div className="row justify-content-center">
                     <div className="col-md-8">
                         <div className="Booking-single">
-                            <Table striped Booking>
+                            <Table responsive striped bordered hover>
                                 <thead>
                                     <tr>
                                         <th>Id</th>
