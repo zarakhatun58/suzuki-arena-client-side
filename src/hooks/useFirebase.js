@@ -39,7 +39,7 @@ const useFirebase = () => {
     fetch(`https://arcane-river-42711.herokuapp.com/users/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-       
+        setAdmin(data?.admin)
       });
   }, [user?.email]);
   console.log(admin);

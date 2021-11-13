@@ -20,6 +20,10 @@ import AdminRoute from "./../AdminRoute/AdminRoute";
 import AddProduct from "./../AddProduct/AddProduct";
 import ManageProduct from './../ManageProduct/ManageProduct';
 import ManageAllOrder from './../../ManageAllOrder/ManageAllOrder';
+import Pay from './../Pay/Pay';
+import MyOrder from './../../MyOrder/MyOrder';
+import AddReview from './../../AddReview/AddReview';
+import Payment from './../../Payment/Payment';
 
 const Dashboard = (props) => {
 
@@ -29,6 +33,8 @@ const Dashboard = (props) => {
   let { path, url } = useRouteMatch();
   const { admin, logOut } = useAuth();
 
+console.log(admin)
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -37,9 +43,20 @@ const Dashboard = (props) => {
       <ButtonToolbar />
       <Container />
       
-      <Link to={`${url}`}>
+      {/* <Link to={`${url}`}>
         <Button color="inherit">Dashboard</Button>
       </Link>
+      { admin && <div> <Link to={`${url}`}>
+        <Button color="inherit">Make Admin </Button>
+      </Link>
+      <Link to={`${url}`}>
+        <Button color="inherit">Manage Product</Button>
+      </Link>
+      <Link to={`${url}`}>
+        <Button color="inherit">Manage All order</Button>
+      </Link>
+      </div>
+      } */}
      
       
       
@@ -82,8 +99,9 @@ const Dashboard = (props) => {
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
               
-             
-              <Nav.Link as={Link} className="text-primary" to="/AddReview">
+           
+            <div>
+            <Nav.Link as={Link} className="text-primary" to="/AddReview">
                   Add Review
                 </Nav.Link>
                 <Nav.Link as={Link} className="text-primary" to="/payment">
@@ -96,23 +114,25 @@ const Dashboard = (props) => {
                 <Nav.Link as={Link} className="text-primary" to="/pay">
                   Pay
                 </Nav.Link>
+            </div>
                 
-            <div>
-               <Nav.Link as={Link} className="text-primary" to="/makeAdmin">
-                  Make Admin<span><i class="fas fa-user-plus"></i></span>
-                </Nav.Link>
-                <Nav.Link as={Link} className="text-primary" to="/manageAllOrder">
-                  Manage All Order
-                </Nav.Link>
-                <Nav.Link as={Link} className="text-primary" to="/addProduct">
-                  Add Product
-                </Nav.Link>
-                <Nav.Link as={Link} className="text-primary" to="/manageProduct">
-                  Manage Product
-                </Nav.Link>
-                                     
-             </div>
-      
+         { admin &&    
+          <div>
+              <Nav.Link as={Link} className="text-primary" to="/makeAdmin">
+                Make Admin<span><i class="fas fa-user-plus"></i></span>
+              </Nav.Link>
+              <Nav.Link as={Link} className="text-primary" to="/manageAllOrder">
+                Manage All Order
+              </Nav.Link>
+              <Nav.Link as={Link} className="text-primary" to="/addProduct">
+                Add Product
+              </Nav.Link>
+              <Nav.Link as={Link} className="text-primary" to="/manageProduct">
+                Manage Product
+              </Nav.Link>
+                                    
+            </div>
+    }
               
                  
                
@@ -138,7 +158,7 @@ const Dashboard = (props) => {
           <Route exact path={path}>
             <DashboardHome></DashboardHome>
           </Route>
-          <AdminRoute exact path={`${path}/makeAdmin`}>
+          <AdminRoute  exact path={`${path}/makeAdmin`}>
             <MakeAdmin></MakeAdmin>
           </AdminRoute>
           <AdminRoute exact path={`${path}/addProduct`}>
@@ -150,6 +170,19 @@ const Dashboard = (props) => {
           <AdminRoute exact path={`${path}/manageAllOrder`}>
             <ManageAllOrder></ManageAllOrder>
           </AdminRoute>
+          <Route exact path={`${path}/myOrder`}>
+          <MyOrder></MyOrder>
+          </Route>
+          <Route exact path={`${path}/pay`}>
+          <Pay></Pay>
+          </Route>
+          <Route exact path={`${path}/addReview`}>
+          <AddReview></AddReview>
+          </Route>
+          <Route exact path={`${path}/payment`}>
+          <Payment></Payment>
+          </Route>
+          
         </Switch>
       </div>
     </>

@@ -7,7 +7,7 @@ const AdminRoute = ({ children, ...rest }) => {
 
     const { user, admin, isLoading } = useAuth();
     
-    if (isLoading) { return <div class="spinner-border text-success" role="status">
+    if (!admin) { return <div class="spinner-border text-success" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>} 
   
