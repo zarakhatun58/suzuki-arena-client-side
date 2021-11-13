@@ -5,12 +5,13 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { useHistory } from 'react-router';
+import { Alert } from "react-bootstrap";
 
 
 
 const Register = () => {
   const { register, handleSubmit, reset } = useForm();
-    const { handleRegister } = useAuth();
+    const {user, handleRegister } = useAuth();
     
     const history=useHistory();
 
@@ -65,6 +66,7 @@ const Register = () => {
       </div>
       <br />
       <Link className="variant-success" style={{textDecoration: "none", color: "#000"}} to="/login">Already Register ? Please Login</Link>
+     
     </div>
   );
 };

@@ -34,21 +34,12 @@ const useFirebase = () => {
     return () => unsubscribe();
   }, [auth]);
 
-  // useEffect(() =>{
-  // fetch(`http://localhost:5000/users/${user.email}`)
-  // .then(res=>res.json())
-  // .then(data=>setAdmin(data.admin))
-  // },[user.email])
 
   useEffect(() => {
-    fetch(`http://localhost:5000/checkAdmin/${user?.email}`)
+    fetch(`https://arcane-river-42711.herokuapp.com/users/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        if (data[0]?.role === "admin") {
-          setAdmin(true);
-        } else {
-          setAdmin(false);
-        }
+       
       });
   }, [user?.email]);
   console.log(admin);
@@ -96,15 +87,10 @@ const useFirebase = () => {
     console.log("logout");
 
     return signOut(auth);
-    // .then(() => {
-    //   setUser({});
-    // })
-    // .catch((error) => {
-    //   // An error happened.
-    // });
+    
   };
   const handleUserInfoRegister = (email) => {
-    fetch("http://localhost:5000/addUserInfo", {
+    fetch("https://arcane-river-42711.herokuapp.com/addUserInfo", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ email }),
@@ -125,7 +111,7 @@ const useFirebase = () => {
     logOut,
     handleUserInfoRegister,
 
-    // saveUser,
+  
   };
 };
 

@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import { useHistory } from 'react-router';
 import { useLocation } from 'react-router';
+import { Alert } from "react-bootstrap";
 
 const LogIn = () => {
   const {
@@ -110,6 +111,7 @@ const LogIn = () => {
             >
               New User ? Please Register
             </Link>
+            {user?.email && <Alert severity="success">Login successfully!</Alert>}
           </div>
         </div>
       </div>

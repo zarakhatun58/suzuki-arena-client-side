@@ -27,7 +27,7 @@ const Dashboard = (props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   let { path, url } = useRouteMatch();
-  const { admin,user, logOut } = useAuth();
+  const { admin, logOut } = useAuth();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -41,26 +41,8 @@ const Dashboard = (props) => {
         <Button color="inherit">Dashboard</Button>
       </Link>
      
-      {admin && (
-        <div>
-          <Link to={`${url}/makeAdmin`}>
-            <Button color="inherit">Make Admin</Button>
-          </Link>
-          <Link to={`${url}/addProduct`}>
-            <Button color="inherit">Add Product</Button>
-          </Link>
-          <Link to={`${url}/manageAllOrder`}>
-            <Button color="inherit">Manage All Order</Button>
-          </Link>
-          <Link to={`${url}/manageProduct`}>
-            <Button color="inherit">Manage Product</Button>
-          </Link>
-          
-         
-
-          
-        </div>
-      )}
+      
+      
       <ul>
         {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
           <li button key={text}>
@@ -100,28 +82,8 @@ const Dashboard = (props) => {
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
               
-             {admin && (
-             <div>
-               <Nav.Link as={Link} className="text-primary" to="/makeAdmin">
-                  Make Admin<span><i class="fas fa-user-plus"></i></span>
-                </Nav.Link>
-                <Nav.Link as={Link} className="text-primary" to="/manageAllOrder">
-                  Manage All Order
-                </Nav.Link>
-                <Nav.Link as={Link} className="text-primary" to="/addProduct">
-                  Add Product
-                </Nav.Link>
-                <Nav.Link as={Link} className="text-primary" to="/manageProduct">
-                  Manage Product
-                </Nav.Link>
              
-             
-             
-             </div>
-             
-             ) }
-                
-                <Nav.Link as={Link} className="text-primary" to="/AddReview">
+              <Nav.Link as={Link} className="text-primary" to="/AddReview">
                   Add Review
                 </Nav.Link>
                 <Nav.Link as={Link} className="text-primary" to="/payment">
@@ -134,6 +96,24 @@ const Dashboard = (props) => {
                 <Nav.Link as={Link} className="text-primary" to="/pay">
                   Pay
                 </Nav.Link>
+                
+            <div>
+               <Nav.Link as={Link} className="text-primary" to="/makeAdmin">
+                  Make Admin<span><i class="fas fa-user-plus"></i></span>
+                </Nav.Link>
+                <Nav.Link as={Link} className="text-primary" to="/manageAllOrder">
+                  Manage All Order
+                </Nav.Link>
+                <Nav.Link as={Link} className="text-primary" to="/addProduct">
+                  Add Product
+                </Nav.Link>
+                <Nav.Link as={Link} className="text-primary" to="/manageProduct">
+                  Manage Product
+                </Nav.Link>
+                                     
+             </div>
+      
+              
                  
                
                 <Button onClick={()=>logOut()} variant="primary">Logout</Button>

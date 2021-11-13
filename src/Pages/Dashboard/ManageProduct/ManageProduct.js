@@ -8,10 +8,10 @@ const ManageProduct = () => {
     const [services, setServices] = useState([]);
     
     useEffect(() => {
-        fetch('http://localhost:5000/product')
+        fetch('https://arcane-river-42711.herokuapp.com/product')
             .then(res => res.json())
             .then(data => setServices(data));
-    }, [])
+    }, [services])
 
   
     return (
