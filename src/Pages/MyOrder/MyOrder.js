@@ -8,16 +8,16 @@ const MyOrder = () => {
     const [myOrder, setMyOrder] = useState([]);
     
     useEffect(() => {
-        fetch(`https://arcane-river-42711.herokuapp.com/myOrder/${user?.email}`)
+        fetch(`https://arcane-river-42711.herokuapp.com/orders/${user?.email}`)
         
             .then(res => res.json())
-            .then(data => console.log(data))
-    }, [user.email])
+            .then(data =>setMyOrder(data))
+    }, [user?.email])
 
     const handleCancel = id => {
         const proceed = window.confirm('Are you sure you want to delete');
         if (proceed) {
-            const url = `https://arcane-river-42711.herokuapp.com/myOrder/${id}`;
+            const url = `https://arcane-river-42711.herokuapp.com/orders/${id}`;
             fetch(url, {
                 method: 'DELETE',
             })

@@ -18,6 +18,8 @@ import DashboardHome from "./../DashboardHome/DashboardHome";
 import MakeAdmin from "./../MakeAdmin/MakeAdmin";
 import AdminRoute from "./../AdminRoute/AdminRoute";
 import AddProduct from "./../AddProduct/AddProduct";
+import ManageProduct from './../ManageProduct/ManageProduct';
+import ManageAllOrder from './../../ManageAllOrder/ManageAllOrder';
 
 const Dashboard = (props) => {
   const { window } = props;
@@ -106,8 +108,14 @@ const Dashboard = (props) => {
                 <Nav.Link as={Link} className="text-primary" to="/pay">
                   Pay
                 </Nav.Link>
-                <Nav.Link as={Link} className="text-primary" to="/manageBookings">
-                  manage booking
+                <Nav.Link as={Link} className="text-primary" to="/manageAllOrder">
+                  Manage All Order
+                </Nav.Link>
+                <Nav.Link as={Link} className="text-primary" to="/addProduct">
+                  Add Product
+                </Nav.Link>
+                <Nav.Link as={Link} className="text-primary" to="/manageProduct">
+                  Manage Product
                 </Nav.Link>
 
                
@@ -135,6 +143,12 @@ const Dashboard = (props) => {
           </AdminRoute>
           <AdminRoute exact path={`${path}/addProduct`}>
             <AddProduct></AddProduct>
+          </AdminRoute>
+          <AdminRoute exact path={`${path}/ManageProduct`}>
+            <ManageProduct></ManageProduct>
+          </AdminRoute>
+          <AdminRoute exact path={`${path}/manageAllOrder`}>
+            <ManageAllOrder></ManageAllOrder>
           </AdminRoute>
         </Switch>
       </div>

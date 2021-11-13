@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import './ManageBookings.css';
+import './ManageAllOrder.css';
 
-const ManageBookings = () => {
+const ManageAllOrder = () => {
 
     const [Bookings, setBookings] = useState([]);
     useEffect(() => {
@@ -34,14 +34,14 @@ const ManageBookings = () => {
                 <div className="row py-5">
                     <div className="col-md-12">
                         <div className="section-title text-center">
-                            <h2>Manage Bookings</h2>
+                            <h3 className="text-danger">Manage All Orders</h3>
                         </div>
                     </div>
                 </div>
                 <div className="row justify-content-center">
                     <div className="col-md-8">
                         <div className="Booking-single">
-                            <Table striped Bookinged>
+                            <Table striped Booking>
                                 <thead>
                                     <tr>
                                         <th>Id</th>
@@ -75,4 +75,4 @@ const ManageBookings = () => {
     );
 };
 
-export default ManageBookings;
+export default ManageAllOrder;
