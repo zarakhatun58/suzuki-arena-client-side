@@ -90,7 +90,7 @@ const LogIn = () => {
                 onClick={handleGoogleLogin}
                 className="btn btn-primary text-white"
               >
-                Google LogIn
+                Google sign In
               </button>
             ) : (
               <button
