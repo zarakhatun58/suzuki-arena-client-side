@@ -16,7 +16,10 @@ const SingleExplore = ({service}) => {
                 <p className="text-justify">{description.slice(0,100)}</p>
                 <div className="text-center">
                     <Link to={`/Booking/${_id}`}>
-                        <button className="btn btn-primary text-center text-white">Buy Now</button>
+                        <button className="btn btn-primary text-center text-white mx-2">Buy Now</button>
+                    </Link> 
+                    <Link to={`/Booking/${_id}`}>
+                        <button className="btn btn-success text-center text-white">Pay</button>
                     </Link> 
                 </div>
             </div>

@@ -44,26 +44,23 @@ const useFirebase = () => {
   }, [user?.email]);
   console.log(admin);
 
-  const handleRegister = (email, password, name, history) => {
-    createUserWithEmailAndPassword(auth, email, password, history)
+  const handleRegister = (email, password, name) => {
+    createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
         const newUser = { email, displayName: name };
+
         setUser(newUser);
-        // send name to firebase creation
-        // saveUser(email, name, "POST");
         updateProfile(auth.currentUser, {
           displayName: name,
         })
           .then(() => {})
           .catch((error) => {});
-
-        history.replace("/");
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(error);
+        // ..
       });
   };
   const handleEmailLogin = (email, password) => {
@@ -89,15 +86,7 @@ const useFirebase = () => {
     return signOut(auth);
     
   };
-  const handleUserInfoRegister = (email) => {
-    fetch("https://arcane-river-42711.herokuapp.com/addUserInfo", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ email }),
-    })
-      .then((res) => res.json())
-      .then((result) => console.log(result));
-  };
+  
 
   return {
     user,
@@ -109,8 +98,7 @@ const useFirebase = () => {
     handleRegister,
     handleEmailLogin,
     logOut,
-    handleUserInfoRegister,
-
+  
   
   };
 };

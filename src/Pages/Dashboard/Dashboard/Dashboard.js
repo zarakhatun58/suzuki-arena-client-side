@@ -1,5 +1,5 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
+import React from 'react'
+import { Switch, Route } from 'react-router-dom'
 
 import {
   Navbar,
@@ -9,75 +9,32 @@ import {
   Nav,
   Form,
   FormControl,
-  ButtonToolbar,
-  
-} from "react-bootstrap";
-import { Link, useRouteMatch } from "react-router-dom";
-import useAuth from "../../../hooks/useAuth";
-import DashboardHome from "./../DashboardHome/DashboardHome";
-import MakeAdmin from "./../MakeAdmin/MakeAdmin";
-import AdminRoute from "./../AdminRoute/AdminRoute";
-import AddProduct from "./../AddProduct/AddProduct";
-import ManageProduct from './../ManageProduct/ManageProduct';
-import ManageAllOrder from './../../ManageAllOrder/ManageAllOrder';
-import Pay from './../Pay/Pay';
-import MyOrder from './../../MyOrder/MyOrder';
-import AddReview from './../../AddReview/AddReview';
-import Payment from './../../Payment/Payment';
+} from 'react-bootstrap'
+import { Link, useRouteMatch } from 'react-router-dom'
+import useAuth from '../../../hooks/useAuth'
+import DashboardHome from './../DashboardHome/DashboardHome'
+import MakeAdmin from './../MakeAdmin/MakeAdmin'
+import AdminRoute from './../AdminRoute/AdminRoute'
+import AddProduct from './../AddProduct/AddProduct'
+import ManageProduct from './../ManageProduct/ManageProduct'
+import ManageAllOrder from './../../ManageAllOrder/ManageAllOrder'
+import MyOrder from '../../MyOrder/MyOrder'
+import Pay from './../Pay/Pay'
+import AddReview from '../../AddReview/AddReview'
 
 const Dashboard = (props) => {
+  const { window } = props
+  const [mobileOpen, setMobileOpen] = React.useState(false)
+  let { path, url } = useRouteMatch()
+  const { admin, logOut } = useAuth()
 
-  
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-  let { path, url } = useRouteMatch();
-  const { admin, logOut } = useAuth();
-
-console.log(admin)
+  console.log(admin)
 
   const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-  const drawer = (
-    <div>
-      <ButtonToolbar />
-      <Container />
-      
-      {/* <Link to={`${url}`}>
-        <Button color="inherit">Dashboard</Button>
-      </Link>
-      { admin && <div> <Link to={`${url}`}>
-        <Button color="inherit">Make Admin </Button>
-      </Link>
-      <Link to={`${url}`}>
-        <Button color="inherit">Manage Product</Button>
-      </Link>
-      <Link to={`${url}`}>
-        <Button color="inherit">Manage All order</Button>
-      </Link>
-      </div>
-      } */}
-     
-      
-      
-      <ul>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <li button key={text}>
-            <li>
-              {index % 2 === 0 ? (
-                <i class="fas fa-inbox"></i>
-              ) : (
-                <i class="far fa-envelope"></i>
-              )}
-            </li>
-            <h4 style={{ color: "blue" }}> text</h4>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+    setMobileOpen(!mobileOpen)
+  }
 
-  const div = window !== undefined ? () => window().document.body : undefined;
+  const div = window !== undefined ? () => window().document.body : undefined
 
   return (
     <>
@@ -92,63 +49,80 @@ console.log(admin)
             onClick={handleDrawerToggle}
           >
             <Offcanvas.Header closeButton>
-              <Offcanvas.Title id="offcanvasNavbarLabel" className="text-danger">
+              <Offcanvas.Title
+                id="offcanvasNavbarLabel"
+                className="text-danger"
+              >
                 Dashboard
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
               
-           
-            <div>
-            <Nav.Link as={Link} className="text-primary" to="/AddReview">
-                  Add Review
-                </Nav.Link>
-                <Nav.Link as={Link} className="text-primary" to="/payment">
-                  Payment Gateway
-                </Nav.Link>
-               
-                <Nav.Link as={Link} className="text-primary" to="/myOrder">
-                  MyOrder
-                </Nav.Link>
-                <Nav.Link as={Link} className="text-primary" to="/pay">
-                  Pay
-                </Nav.Link>
-            </div>
-                
-         { admin &&    
-          <div>
-              <Nav.Link as={Link} className="text-primary" to="/makeAdmin">
-                Make Admin<span><i class="fas fa-user-plus"></i></span>
-              </Nav.Link>
-              <Nav.Link as={Link} className="text-primary" to="/manageAllOrder">
-                Manage All Order
-              </Nav.Link>
-              <Nav.Link as={Link} className="text-primary" to="/addProduct">
-                Add Product
-              </Nav.Link>
-              <Nav.Link as={Link} className="text-primary" to="/manageProduct">
-                Manage Product
-              </Nav.Link>
-                                    
-            </div>
-    }
-              
-                 
-               
-                <Button onClick={()=>logOut()} variant="primary">Logout</Button>
-               
-               
+
+                {!admin && (
+                  <div>
+                    <Nav.Link
+                      as={Link}
+                      className="text-primary"
+                      to="/AddReview"
+                    >
+                      Add Review
+                    </Nav.Link>
+                    <Nav.Link as={Link} className="text-primary" to="/payment">
+                      Payment Gateway
+                    </Nav.Link>
+
+                    <Nav.Link as={Link} className="text-primary" to="/myOrder">
+                      MyOrder
+                    </Nav.Link>
+                    <Nav.Link as={Link} className="text-primary" to="/pay">
+                      Pay
+                    </Nav.Link>
+                  </div>
+                )}
+
+                {admin && (
+                  <div>
+                    <Nav.Link
+                      as={Link}
+                      className="text-primary"
+                      to="/makeAdmin"
+                    >
+                      Make Admin
+                      <span>
+                        <i class="fas fa-user-plus"></i>
+                      </span>
+                    </Nav.Link>
+                    <Nav.Link
+                      as={Link}
+                      className="text-primary"
+                      to="/manageAllOrder"
+                    >
+                      Manage All Order
+                    </Nav.Link>
+                    <Nav.Link
+                      as={Link}
+                      className="text-primary"
+                      to="/addProduct"
+                    >
+                      Add Product
+                    </Nav.Link>
+                    <Nav.Link
+                      as={Link}
+                      className="text-primary"
+                      to="/manageProduct"
+                    >
+                      Manage Product
+                    </Nav.Link>
+                  </div>
+                )}
+
+                <Button onClick={() => logOut()} variant="primary">
+                  Logout
+                </Button>
               </Nav>
-              <Form className="d-flex">
-                <FormControl
-                  type="search"
-                  placeholder="Search"
-                  className="me-2"
-                  aria-label="Search"
-                />
-                <Button variant="outline-success">Search</Button>
-              </Form>
+             
             </Offcanvas.Body>
           </Navbar.Offcanvas>
         </Container>
@@ -158,7 +132,7 @@ console.log(admin)
           <Route exact path={path}>
             <DashboardHome></DashboardHome>
           </Route>
-          <AdminRoute  exact path={`${path}/makeAdmin`}>
+          <AdminRoute exact path={`${path}/makeAdmin`}>
             <MakeAdmin></MakeAdmin>
           </AdminRoute>
           <AdminRoute exact path={`${path}/addProduct`}>
@@ -171,22 +145,35 @@ console.log(admin)
             <ManageAllOrder></ManageAllOrder>
           </AdminRoute>
           <Route exact path={`${path}/myOrder`}>
-          <MyOrder></MyOrder>
+            <MyOrder></MyOrder>
           </Route>
           <Route exact path={`${path}/pay`}>
-          <Pay></Pay>
+            <Pay></Pay>
           </Route>
           <Route exact path={`${path}/addReview`}>
-          <AddReview></AddReview>
+            <AddReview></AddReview>
           </Route>
-          <Route exact path={`${path}/payment`}>
-          <Payment></Payment>
-          </Route>
-          
         </Switch>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard
+
+/* <Link to={`${url}`}>
+        <Button color="inherit">Dashboard</Button>
+      </Link>
+      { admin && <div> <Link to={`${url}`}>
+        <Button color="inherit">Make Admin </Button>
+      </Link>
+      <Link to={`${url}`}>
+        <Button color="inherit">Manage Product</Button>
+      </Link>
+      <Link to={`${url}`}>
+        <Button color="inherit">Manage All order</Button>
+      </Link>
+      </div>
+      }
+      
+      */

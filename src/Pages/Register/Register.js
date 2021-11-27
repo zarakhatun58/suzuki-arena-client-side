@@ -5,13 +5,12 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { useHistory } from 'react-router';
-import { Alert } from "react-bootstrap";
 
 
 
 const Register = () => {
   const { register, handleSubmit, reset } = useForm();
-    const {user, handleRegister } = useAuth();
+    const { handleRegister } = useAuth();
     
     const history=useHistory();
 
@@ -21,8 +20,9 @@ const Register = () => {
     axios.post("https://arcane-river-42711.herokuapp.com/users", user).then((res) => {
       if (res.data.insertedId) {
         alert("Registered successfully");
-        handleRegister(data.email, data.password, data.name, history)
+        handleRegister(data.email, data.password, data.name)
         reset();
+        history.push('/')
       }
     });
   };

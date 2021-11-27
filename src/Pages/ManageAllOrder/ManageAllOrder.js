@@ -32,14 +32,14 @@ const ManageAllOrder = () => {
         <div className="manage-Booking-area py-5">
             <div className="container">
                 <div className="row py-5">
-                    <div className="col-md-12">
+                    <div className="col-lg-12 col-md-8 col-sm-6">
                         <div className="section-title text-center">
                             <h3 className="text-danger">Manage All Orders</h3>
                         </div>
                     </div>
                 </div>
                 <div className="row justify-content-center">
-                    <div className="col-md-8">
+                    <div className="">
                         <div className="Booking-single">
                             <Table responsive striped bordered hover>
                                 <thead>
@@ -49,6 +49,7 @@ const ManageAllOrder = () => {
                                         <th>Price</th>
                                         <th>Status</th>
                                         <th>Actions</th>
+                                       
                                     </tr>
                                 </thead>
                                 <tbody>

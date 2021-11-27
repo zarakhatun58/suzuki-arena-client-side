@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Alert, Button, Form  } from 'react-bootstrap';
+import { Alert } from 'react-bootstrap';
 
 import icon from '../../../image/icons/icon3.jpg'
 import './MakeAdmin.css';

@@ -8,6 +8,7 @@ const Payment = () => {
         <div className="card  bg-success" >
           <div className="card-body">
             <form className="" action="/payNow" method="post">
+            <h2> Please pay for :</h2>
               <div className="form-group text-light ">
                
                 <input className="form-control" type="text" placeholder="name" value=""/>
@@ -22,7 +23,7 @@ const Payment = () => {
               </div>
                 <div className="form-group ">
                
-                <input className="form-control" type="text" placeholder="amount" value=""/>
+                <input className="form-control" type="text" placeholder="price" value=""/>
               </div>
               <div className="form-group  animation-glow">
                 <button className="btn form-control btn-primary " animation="glow">Pay Now</button>

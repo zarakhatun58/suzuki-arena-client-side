@@ -70,6 +70,7 @@ const Booking = () => {
                                     <input className="form-control mb-3" defaultValue={user.email} {...register("email", { required: true })} />
                                     {errors.email && <span className="error">This field is required</span>}
                                     <input className="form-control mb-3" placeholder="Status" defaultValue={"pending"} {...register("status")} />
+                                    <input className="form-control mb-3"  defaultValue={Booking.price} {...register("price")} />
 
                                     <input className="form-control mb-3" placeholder="Address" defaultValue="" {...register("address")} />
                                     <input className="form-control mb-3" placeholder="City" defaultValue="" {...register("city")} />

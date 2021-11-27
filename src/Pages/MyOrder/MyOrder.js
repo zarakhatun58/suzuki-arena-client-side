@@ -52,6 +52,7 @@ const MyOrder = () => {
                                         <th>Price</th>
                                         <th>Status</th>
                                         <th>Actions</th>
+                                        <th>Payment</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -63,6 +64,9 @@ const MyOrder = () => {
                                             <td>{Booking.status}</td>
                                             <td>
                                                 <button onClick={() => handleCancel(Booking._id)} className="btn btn-danger ms-2">Cancel</button>
+                                            </td>
+                                            <td>
+                                                <button onClick={() => handleCancel(Booking._id)} className="btn btn-success ms-2">Pay</button>
                                             </td>
                                         </tr>
                                         )}
