@@ -23,6 +23,7 @@ const Payment = () => {
         Please pay for :{id} for {booking.name}
       </h2>
       <h4>pay: ${booking.price}</h4>
+
       <Elements stripe={stripePromise}>
         <CheckoutForm booking={booking} />
       </Elements>

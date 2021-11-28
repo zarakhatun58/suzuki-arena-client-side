@@ -8,9 +8,7 @@
 
 ### ➡ Recent most branded cars are available with best offer prices
 
-### ➡ admin and user dashboard. Admin can delete, add, Manage Products also Users
-
-       can complete her/his payment using online payment (stripe).
+### ➡ admin and user dashboard. Admin can delete, add, Manage Products also Users can complete her/his payment using online payment (stripe).
 
 ### ➡ Maruti Suzuki car price starts at Rs 3.15 Lakh for the cheapest model which is Alto and the price of most expensive model, which is XL6 starts at Rs 9.94 Lakh. Maruti Suzuki offers 15 car models in India, including 1 car in SUV category, 1 car in Sedan category, 8 cars in Hatchback category, 1 car in Minivan/Van category, 2 cars in MUV category, 1 car in Compact Sedan category, 1 car in Compact SUV category. Maruti Suzuki has 3 upcoming cars in India, Wagon R EV, Baleno Facelift and Jimny.
 
