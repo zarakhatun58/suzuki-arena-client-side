@@ -1,25 +1,25 @@
-import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import AuthProvider from './contexts/AuthProvider'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Header from './Pages/Header/Header'
-import Home from './Pages/Home/Home'
-import NotFound from './Pages/NotFound/NotFound'
-import LogIn from './Pages/LogIn/LogIn'
-import AddReview from './Pages/AddReview/AddReview'
-import Booking from './Pages/Booking/Booking'
-import ManageAllOrder from './Pages/ManageAllOrder/ManageAllOrder'
-import PrivateRoute from './routes/PrivateRoute'
-import UpdateStatus from './Pages/UpdateStatus/UpdateStatus'
-import Register from './Pages/Register/Register'
-import MyOrder from './Pages/MyOrder/MyOrder'
-import Explore from './Pages/Explore/Explore'
-import Dashboard from './Pages/Dashboard/Dashboard/Dashboard'
-import Pay from './Pages/Dashboard/Pay/Pay'
-import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin'
-import ManageProduct from './Pages/Dashboard/ManageProduct/ManageProduct'
-import AddProduct from './Pages/Dashboard/AddProduct/AddProduct'
-import Payment from './Pages/Payment/Payment'
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import AuthProvider from "./contexts/AuthProvider";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Header from "./Pages/Header/Header";
+import Home from "./Pages/Home/Home";
+import NotFound from "./Pages/NotFound/NotFound";
+import LogIn from "./Pages/LogIn/LogIn";
+import AddReview from "./Pages/AddReview/AddReview";
+import Booking from "./Pages/Booking/Booking";
+import ManageAllOrder from "./Pages/ManageAllOrder/ManageAllOrder";
+import PrivateRoute from "./routes/PrivateRoute";
+import UpdateStatus from "./Pages/UpdateStatus/UpdateStatus";
+import Register from "./Pages/Register/Register";
+import MyOrder from "./Pages/MyOrder/MyOrder";
+import Explore from "./Pages/Explore/Explore";
+import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
+import Pay from "./Pages/Dashboard/Pay/Pay";
+import MakeAdmin from "./Pages/Dashboard/MakeAdmin/MakeAdmin";
+import ManageProduct from "./Pages/Dashboard/ManageProduct/ManageProduct";
+import AddProduct from "./Pages/Dashboard/AddProduct/AddProduct";
+import Payment from "./Pages/Payment/Payment";
 
 function App() {
   return (
@@ -89,7 +89,7 @@ function App() {
         </Router>
       </AuthProvider>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

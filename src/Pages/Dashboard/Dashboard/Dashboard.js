@@ -1,40 +1,33 @@
-import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import React from "react";
+import { Switch, Route } from "react-router-dom";
 
-import {
-  Navbar,
-  Container,
-  Offcanvas,
-  Button,
-  Nav,
-  Form,
-  FormControl,
-} from 'react-bootstrap'
-import { Link, useRouteMatch } from 'react-router-dom'
-import useAuth from '../../../hooks/useAuth'
-import DashboardHome from './../DashboardHome/DashboardHome'
-import MakeAdmin from './../MakeAdmin/MakeAdmin'
-import AdminRoute from './../AdminRoute/AdminRoute'
-import AddProduct from './../AddProduct/AddProduct'
-import ManageProduct from './../ManageProduct/ManageProduct'
-import ManageAllOrder from './../../ManageAllOrder/ManageAllOrder'
-import MyOrder from '../../MyOrder/MyOrder'
-import Pay from './../Pay/Pay'
-import AddReview from '../../AddReview/AddReview'
+import { Navbar, Container, Offcanvas, Button, Nav } from "react-bootstrap";
+import { Link, useRouteMatch } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
+import DashboardHome from "./../DashboardHome/DashboardHome";
+import MakeAdmin from "./../MakeAdmin/MakeAdmin";
+import AdminRoute from "./../AdminRoute/AdminRoute";
+import AddProduct from "./../AddProduct/AddProduct";
+import ManageProduct from "./../ManageProduct/ManageProduct";
+import ManageAllOrder from "./../../ManageAllOrder/ManageAllOrder";
+import MyOrder from "../../MyOrder/MyOrder";
+import Pay from "./../Pay/Pay";
+import AddReview from "../../AddReview/AddReview";
+import Payment from "./../../Payment/Payment";
 
 const Dashboard = (props) => {
-  const { window } = props
-  const [mobileOpen, setMobileOpen] = React.useState(false)
-  let { path, url } = useRouteMatch()
-  const { admin, logOut } = useAuth()
+  const { window } = props;
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+  let { path, url } = useRouteMatch();
+  const { admin, logOut } = useAuth();
 
-  console.log(admin)
+  console.log(admin);
 
   const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen)
-  }
+    setMobileOpen(!mobileOpen);
+  };
 
-  const div = window !== undefined ? () => window().document.body : undefined
+  const div = window !== undefined ? () => window().document.body : undefined;
 
   return (
     <>
@@ -58,8 +51,6 @@ const Dashboard = (props) => {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
-              
-
                 {!admin && (
                   <div>
                     <Nav.Link
@@ -122,7 +113,6 @@ const Dashboard = (props) => {
                   Logout
                 </Button>
               </Nav>
-             
             </Offcanvas.Body>
           </Navbar.Offcanvas>
         </Container>
@@ -132,6 +122,7 @@ const Dashboard = (props) => {
           <Route exact path={path}>
             <DashboardHome></DashboardHome>
           </Route>
+
           <AdminRoute exact path={`${path}/makeAdmin`}>
             <MakeAdmin></MakeAdmin>
           </AdminRoute>
@@ -150,16 +141,19 @@ const Dashboard = (props) => {
           <Route exact path={`${path}/pay`}>
             <Pay></Pay>
           </Route>
+          <Route path={`${path}/payment/:id`}>
+            <Payment />
+          </Route>
           <Route exact path={`${path}/addReview`}>
             <AddReview></AddReview>
           </Route>
         </Switch>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;
 
 /* <Link to={`${url}`}>
         <Button color="inherit">Dashboard</Button>
